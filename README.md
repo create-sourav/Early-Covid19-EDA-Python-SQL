@@ -5,11 +5,13 @@ This exploratory data analysis investigates the early months of the COVID-19 pan
 Highlights include global trends, country-wide case comparisons, fatality and recovery rates, WHO regional insights, and interactive maps and dashboards.
 
 ### 📊 Screenshots  
-![Global CFR](images/Global_CFR.png)  
+
+![Global CFR](Global_CFR.png)  
 *Figure 1: Global Case Fatality Rate (CFR)*  
 
-![Global Rates](images/Global_rates.png)  
-*Figure 2: Global Fatality, Recovery, and Active Rates Trend*
+![Global Rates](Global_rates.png)  
+*Figure 2: Global Fatality, Recovery, and Active Rates Trend*  
+
 
 ## 📂 Dataset
 
