@@ -6,10 +6,10 @@ Highlights include global trends, country-wide case comparisons, fatality and re
 
 ### 📊 Screenshots  
 
-![Global CFR](Global_CFR.png)  
+![Global CFR](Global CFR.png)  
 *Figure 1: Global Case Fatality Rate (CFR)*  
 
-![Global Rates](Global_rates.png)  
+![Global Rates](Global rates.png)  
 *Figure 2: Global Fatality, Recovery, and Active Rates Trend*  
 
 
