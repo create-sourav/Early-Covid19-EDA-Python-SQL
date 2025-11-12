@@ -1,7 +1,7 @@
 ## 🦠 Global COVID-19 EDA Project
 📌 Project Overview
 
-This exploratory data analysis investigates the early months of the COVID-19 pandemic (January–July 2020), using SQL-style logic alongside Python (Pandas, Seaborn, Plotly) for visualization.
+This exploratory data analysis investigates the early months of the COVID-19 pandemic (January–July 2020), using SQL-style logic alongside Python (Pandas, Seaborn) for visualization.
 Highlights include global trends, country-wide case comparisons, fatality and recovery rates, WHO regional insights, and interactive maps and dashboards.
 
 ### 📊 Screenshots  
