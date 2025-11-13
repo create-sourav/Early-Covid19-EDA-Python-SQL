@@ -8,13 +8,13 @@ The project demonstrates the combined use of SQL, Python, statistics, and visual
 
 The dataset contains global daily COVID-19 records from January 2020 to July 2020, including:
 
-Country/Region
-Latitude, Longitude
-Date
-Confirmed cases (cumulative)
-Deaths (cumulative)
-Recovered (cumulative)
-Active cases
+Country/Region|
+Latitude, Longitude|
+Date|
+Confirmed cases (cumulative)|
+Deaths (cumulative)|
+Recovered (cumulative)|
+Active cases (cumulative)|
 WHO Region
 
 It covers 187 countries, enabling country-level and region-level comparisons.
