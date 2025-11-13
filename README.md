@@ -1,60 +1,70 @@
-## 🦠 Global COVID-19 EDA Project
-📌 Project Overview
+## 🦠 Global COVID-19 EDA Project [COVID-19 Global Analysis (Kaggle: covid_19_clean_complete.csv)]
 
-This exploratory data analysis investigates the early months of the COVID-19 pandemic (January–July 2020), using SQL-style logic alongside Python (Pandas, Seaborn) for visualization.
-Highlights include global trends, country-wide case comparisons, fatality and recovery rates, WHO regional insights, and interactive maps and dashboards.
+## Summary:
+This project performs an end-to-end analysis of global COVID-19 trends using the Kaggle dataset covid_19_clean_complete.csv. The workflow includes ingestion into a SQLite database, SQL-based analytics using window functions, computation of daily and cumulative metrics, region-wise comparisons, visualization of time-series trends, correlation analysis, and statistical hypothesis testing (ANOVA) on country-level Case Fatality Rates (CFR).
+The project demonstrates the combined use of SQL, Python, statistics, and visualization to extract meaningful insights from a real-world epidemiological dataset.
 
-### 📊 Screenshots  
+## 📊 Dataset Overview
 
-![GlobalCFR](GlobalCFR.png)  
-*Figure 1: Global Case Fatality Rate (CFR)*  
+The dataset contains global daily COVID-19 records from January 2020 to July 2020, including:
 
-![GlobalRates](Globalrates.png)  
-*Figure 2: Global Fatality, Recovery, and Active Rates Trend*  
+Country/Region
+Latitude, Longitude
+Date
+Confirmed cases (cumulative)
+Deaths (cumulative)
+Recovered (cumulative)
+Active cases
+WHO Region
+
+It covers 187 countries, enabling country-level and region-level comparisons.
+
+## 🧠 Key Analytical Decisions
+
+Final case counts are computed using MAX() because the dataset stores cumulative daily values.
+Daily new cases are computed using SQL window functions:
+Confirmed - LAG(Confirmed) OVER (PARTITION BY country ORDER BY Date)
+Region-level daily totals use SUM() across all countries in the region.
+
+Case Fatality Rate (CFR) and Case Recovery Rate (CRR) are calculated using final totals:
+ROUND(MAX(Deaths) * 100.0 / (MAX(Confirmed), 2)
 
 
-## 📂 Dataset
+## 🚀 Project Highlights & Key Findings
+1. Countries with Highest Daily New Cases
 
-The analysis is based on the COVID-19 Dataset by imdevskp on Kaggle, which provides daily updates on confirmed cases, deaths, recoveries, and active counts.
+Using window functions, the project identifies countries with the most severe one-day spikes.
+In this dataset, the United Kingdom shows unusually large spikes due to reporting adjustments.
 
-🔗 Source: Kaggle — corona-virus-report dataset
+2. Global CFR (Case Fatality Rate) Insights
 
-## ✨ Key Features
+Highest CFR values appear in Yemen, UK, Italy, Belgium, reflecting a combination of limited reporting, overwhelmed healthcare systems, and demographic factors.
+Lower CFR values appear across Africa and South-East Asia, partly due to younger populations and differing testing strategies.
 
-Global Trends: Cumulative cases and deaths visualized over time.
+3. WHO Region Trends
 
-Top Country Comparison: Bar charts and dashboards showing confirmed cases, total deaths, fatality rates (CFR), and recovery rates.
+Americas region shows the highest cumulative cases and deaths.
+Europe shows higher fatality ratios, consistent with early pandemic waves.
+Eastern Mediterranean and South-East Asia show strong recovery rates in the dataset.
 
-Rate Trends: Time-series line plots comparing fatality, recovery, and active case percentages.
+4. Correlation Analysis
 
-WHO Regional Analysis: Comparison of regional outcomes across WHO-defined zones.
+Confirmed cases vs Deaths: Strong positive correlation
+Deaths vs Recovered: Also highly correlated
+The virus spreads exponentially; highly infected countries show proportional increases in deaths and recoveries.
 
-Geographic Visualizations: Interactive bubble maps — bubble size represents confirmed cases, color represents CFR.
+5. ANOVA Statistical Test (CFR by WHO Region)
+   
+ANOVA conducted on country-level CFR grouped by WHO regions reveals:
+p ≈ 0.0088 (significant) when all countries are included
+p ≈ 0.0539 (not significant) when countries with very low case counts are filtered
+This demonstrates how small countries with extreme CFR values influence statistical significance.
 
-Methodology: Original SQL queries are included as comments/Markdown for clarity, with Pandas implementations for runtime compatibility.
+📝 Notes & Limitations
 
-## ⚙️ How to Run
+Some countries (e.g., United Kingdom) stopped reporting recovery numbers → CRR becomes unreliable.
+COVID-19 data includes reporting delays and mass backlog updates, which are preserved because they represent real events.
 
-Clone this repository.
+The dataset ends in July 2020, covering only the initial pandemic waves.
 
-Open the Jupyter Notebook in your environment (local, Google Colab, or Kaggle).
-
-Run all notebook cells sequentially — visualizations and insights will render automatically.
-
-## 📊 Insights
-
-Global deaths escalated rapidly during March–April 2020, stabilizing mid-year.
-
-US, Brazil, and India reported the highest absolute impact.
-
-Fatality Rate (CFR) stabilized around 3–5%, while recovery rates steadily climbed past 50% by June.
-
-Europe experienced the highest regional fatality, while Asia demonstrated stronger recovery trends.
-
-## 📝 Notes & Acknowledgments
-
-Dataset spans only the early phase of the pandemic (up to July 27, 2020) → later waves (Delta, Omicron) and vaccination effects are not included.
-
-Some countries (e.g., the UK) did not consistently report recovery data, affecting comparative metrics.
-
-The project showcases both SQL logic and Python-based execution to ensure clarity and reproducibility.
+Results may not represent later pandemic dynamics.
