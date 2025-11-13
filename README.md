@@ -64,7 +64,5 @@ This demonstrates how small countries with extreme CFR values influence statisti
 
 Some countries (e.g., United Kingdom) stopped reporting recovery numbers → CRR becomes unreliable.
 COVID-19 data includes reporting delays and mass backlog updates, which are preserved because they represent real events.
-
 The dataset ends in July 2020, covering only the initial pandemic waves.
-
 Results may not represent later pandemic dynamics.
